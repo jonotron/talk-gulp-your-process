@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gulp your process</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+      @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { 
+        font-family: 'Droid Serif';
+      }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .large {
+        font-size: 2em; 
+      }
+      .remark-slide-content {
+        font-size: 1.5em; 
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: large, center, middle
+
+# Gulp your process
+
+---
+
+class: center, middle
+
+![Gulp logo](images/gulp-2x.png)
+
+---
+class: large, center, middle
+
+## Streaming build system
+
+Uses node.js streams for more intuitive build process.
+
+---
+
+## What are streams?
+
+- Streams are **objects** that accept input **and/or** return output
+- These streams can be wired together using pipes.
+
+---
+
+![water pipes](images/water+pipes.jpg)
+
+---
+
+## Unix land
+
+How many .jpg images do I have in a given directory (shallow)
+
+```bash
+ls -1
+gulp-2x.png
+water+pipes.jpg
+```
+
+Three utilities
+
+- `ls` - list files in a directory
+- `grep` - search for stuff
+- `wc` - count things
+
+Pipe them together
+
+```bash
+ls -1 | grep jpg | wc -l
+     1
+```
+
+---
+
+## Build process
+
+* Minify my css
+* Move it to /dist
+
+---
+
+
+```javascript
+gulp.src('styles.css')
+.pipe(minify())
+.pipe(gulp.dest('dist/styles.css'));
+```
+
+    </textarea>
+    <script src="http://gnab.github.io/remark/downloads/remark-0.5.9.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
