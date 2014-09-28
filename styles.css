@@ -1,0 +1,30 @@
+body { 
+  font-family: 'Droid Serif';
+}
+
+h1, 
+h2, 
+h3 {
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: normal;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Up the font size on all slides*/
+.remark-slide-content {
+  font-size: 1.5em; 
+}
+
+/* Big slides */
+.large {
+  font-size: 2em; 
+}
+
+.remark-code, 
+.remark-inline-code { 
+  font-family: 'Ubuntu Mono'; 
+}
