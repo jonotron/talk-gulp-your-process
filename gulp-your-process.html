@@ -69,19 +69,55 @@ ls -1 | grep jpg | wc -l
 
 ---
 
-## Build process
+## Node streams
 
-* Minify my css
-* Move it to /dist
+```javascript
+a.pipe(b).pipe(c);
+```
 
 ---
 
+## Gulp task
+
+Let's minify some css
 
 ```javascript
 gulp.src('styles.css')
 .pipe(minify())
-.pipe(gulp.dest('dist/styles.css'));
+.pipe(gulp.dest('dist'));
 ```
+
+Let's see it in action!
+
+---
+
+## Making a gulp task 
+
+```javascript
+var gulp   = require('gulp');
+var minify = require('gulp-minify-css');
+
+gulp.task('css', function() {
+  gulp.src('styles.css')
+  .pipe(minify())
+  .pipe(gulp.dest('dist'));
+});
+```
+
+---
+
+## That doesn't seem very automatic yet
+
+I agree, computers are good at stuff (like this).
+
+```javascript
+gulp.task('watch', function() {
+  gulp.watch('styles.css', ['css']);
+});
+```
+
+It's a bit like magic
+
 
     </textarea>
     <script src="http://gnab.github.io/remark/downloads/remark-0.5.9.min.js" type="text/javascript">
