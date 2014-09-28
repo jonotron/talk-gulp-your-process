@@ -1,0 +1,20 @@
+{
+  "name": "gulp-your-process",
+  "version": "1.0.0",
+  "description": "Gulp your process talk",
+  "main": "index.js",
+  "dependencies": {
+    "gulp-minify-css": "^0.3.10",
+    "gulp": "^3.8.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com//jonotron/talk-gulp-your-process.git"
+  },
+  "author": "Jonathan Bowers <jonotron@gmail.com>",
+  "license": "MIT"
+}
