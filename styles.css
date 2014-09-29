@@ -24,6 +24,10 @@ img {
   font-size: 2em; 
 }
 
+.small {
+  font-size: .5em;
+}
+
 .remark-code, 
 .remark-inline-code { 
   font-family: 'Ubuntu Mono'; 

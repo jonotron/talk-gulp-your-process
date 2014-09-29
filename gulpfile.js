@@ -7,8 +7,7 @@ gulp.task('css', function() {
   .pipe(gulp.dest('dist'));
 });
 
-var watch = gulp.watch('styles.css', ['css']);
-watch.on('change', function(event) {
-  console.log('File %s was %s. Running tasks...', event.path, event.type);
+gulp.task('watch', function() {
+  gulp.watch('styles.css', ['css']);
 });
 

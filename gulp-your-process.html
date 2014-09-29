@@ -72,7 +72,7 @@ ls -1 | grep jpg | wc -l
 ## Node streams
 
 ```javascript
-a.pipe(b).pipe(c);
+a.pipe(b).pipe(c)
 ```
 
 ---
@@ -111,12 +111,126 @@ gulp.task('css', function() {
 I agree, computers are good at stuff (like this).
 
 ```javascript
+var watch = gulp.watch('styles.css', ['css']);
 gulp.task('watch', function() {
-  gulp.watch('styles.css', ['css']);
-});
+  gulp.watch('styles.css', ['css'])
+})
 ```
 
 It's a bit like magic
+
+---
+
+## A slightly more advanced CSS build
+
+```javascript
+gulp.src('styles.scss')
+.pipe(sass())
+.pipe(minify())
+.pipe(gulp.dest('dist'))
+.pipe(rename('styles.min.css'))
+.pipe(gulp.dest('dist'));
+```
+
+---
+
+## A javascript example
+
+```javascript
+gulp.src(['scripts/**/*.js', 'libs/**/*.js'])
+.pipe(concat('app.js'))
+.pipe(gulp.dest('dist'))
+.pipe(uglify())
+.pipe(rename('app.min.js'))
+.pipe(gulp.dest('dist'));
+```
+
+---
+
+## Angular template cache
+
+```javascript
+gulp.src(['partials/**/*.html'])
+.pipe(templateCache('templates.js'))
+.pipe(uglify())
+.pipe(gulp.dest('dist'));
+```
+
+---
+class: large, center, middle
+
+# How to get started
+
+---
+
+class: large
+
+1. Install node (http://nodejs.org)
+2. Install gulp on your system
+```
+npm install -g gulp
+```
+3. Install gulp in your local project
+```
+npm install --save-dev gulp
+```
+4. Install some gulp packages
+```
+npm install --save-dev gulp-minify-css
+```
+5. Create a `gulpfile.js` and start playing
+
+---
+
+# Why not Grunt?
+
+Grunt favours configuration, and is somewhat less flexible. Also !streams.
+
+```javascript
+grunt.initConfig({
+  sass: {
+    dist: {
+      files: {
+        'dist/styles.css': 'styles.scss'
+      } 
+    }
+  }
+});
+
+grunt.loadNpmTasks('grunt-sass');
+```
+
+Many grunt modules tend to do many things. Gulp modules tend to do one thing.
+
+---
+
+# Some useful modules
+
+* gulp-concat
+* gulp-watch
+* gulp-uglify
+* gulp-minify-css
+* gulp-angular-templatecache
+
+---
+
+# Some useful reading
+
+* http://gulpjs.com
+* https://github.com/substack/stream-handbook (google for stream handbook)
+
+---
+
+class: center, large, middle
+
+# Thanks!
+
+twitter: [@thejonotron](https://twitter.com/thejonotron)
+
+We do javascript consulting and coaching (node/angular/gulp/sass).
+
+.small[This deck at https://github.com/jonotron/talk-gulp-your-process ]
+.small[using http://remarkjs.com ]
 
 
     </textarea>
